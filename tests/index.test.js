@@ -8,6 +8,6 @@ describe('try get methods', () => {
   });
 
   it('/bye should respond with the correct json message', (done) => {
-    request(app).get('/bye').expect(JSON.stringify({message: 'bye'}), done);
+    request(app).get('/bye').expect(JSON.stringify({message: 'goodbye'}), done);
   });
 });
