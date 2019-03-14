@@ -10,7 +10,7 @@ app.get('/hello', function (req, res) {
 
 app.get('/bye', function (req, res) {
   res.status(200).send({
-    message: 'bye',
+    message: 'goodbye',
   });
 });
 
