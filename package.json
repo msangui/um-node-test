@@ -1,0 +1,26 @@
+{
+  "name": "um-node-test",
+  "version": "1.0.0",
+  "description": "Test project for Jenkins",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha tests/index.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msangui/um-node-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msangui/um-node-test/issues"
+  },
+  "homepage": "https://github.com/msangui/um-node-test#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "mocha": "^6.0.2",
+    "supertest": "^4.0.0"
+  }
+}
