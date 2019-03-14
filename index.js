@@ -4,7 +4,7 @@ const app = express();
 
 app.get('/hello', function (req, res) {
   res.status(200).send({
-    message: 'hello test',
+    message: 'hello',
   });
 });
 
