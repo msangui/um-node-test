@@ -4,7 +4,7 @@ var app = require('../index.js');
 
 describe('try get methods', () => {
   it('/hello should respond with the correct json message', (done) => {
-    request(app).get('/hello').expect(JSON.stringify({message: 'hello'}), done);
+    request(app).get('/hello').expect(JSON.stringify({message: 'hello2'}), done);
   });
 
   it('/bye should respond with the correct json message', (done) => {
