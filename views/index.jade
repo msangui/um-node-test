@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1.title RDS FORM
+    div.box
+        form(method='POST',action='/connection', enctype='application/x-www-form-urlencoded')
+            div.field
+                label.label Endpoint
+                div.control
+                    input.input(type='text', placeholder='um-db-test.cacc2afejcoo.us-east-1.rds.amazonaws.com', name='endpoint')
+            div.field
+                label.label User
+                div.control
+                    input.input(type='text', placeholder='admin', name='user')
+            div.field
+                label.label Password
+                div.control
+                    input.input(type='password', placeholder='password', name='password')
+            div.field
+                div.control
+                    input.button.is-link(type='submit', value='Submit')
