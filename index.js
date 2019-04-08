@@ -25,9 +25,9 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
-app.post('/metric', async (req, res) => {
+app.get('/metric', async (req, res) => {
   try {
-    const result = await metric.sendCustomMetric(req.body.metricValue);
+    const result = await metric.sendCustomMetric(req.query.metricValue);
     res.render('result', {title: 'Success', message: result});
   } catch (err) {
     res.render('result', {title: 'Error', message: err});

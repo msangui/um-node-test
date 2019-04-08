@@ -3,7 +3,7 @@ extends layout
 block content
     h1.title RDS FORM
     div.box
-        form(method='POST',action='/metric', enctype='application/x-www-form-urlencoded')
+        form(method='GET', action='/metric', enctype='application/x-www-form-urlencoded')
             div.field
                 label.label Metric
                 div.control
