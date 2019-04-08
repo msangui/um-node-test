@@ -15,6 +15,15 @@ app.get('/bye', function (req, res) {
   });
 });
 
+app.get('/metric', async (req, res) => {
+  const result = await metric.sendCustomMetric(req.query.metricValue);
+  try {
+    res.status(200).send(result);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
@@ -23,15 +32,6 @@ app.use(express.urlencoded());
 
 app.get('/', function(req, res){
   res.render('index');
-});
-
-app.get('/metric', async (req, res) => {
-  try {
-    const result = await metric.sendCustomMetric(req.query.metricValue);
-    res.render('result', {title: 'Success', message: result});
-  } catch (err) {
-    res.render('result', {title: 'Error', message: err});
-  }
 });
 
 app.listen(process.env.PORT || 3000, () => {
