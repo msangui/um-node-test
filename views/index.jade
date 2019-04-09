@@ -1,11 +1,12 @@
 extends layout
 
 block content
-    h1.title RDS FORM
+    h1.title.is-1 Elastic Load Balancer
+    h3.title.is-3 Instance Internal IP: #{ip}
     div.box
         form(method='GET', action='/metric', enctype='application/x-www-form-urlencoded')
             div.field
-                label.label Metric
+                label.label Set Custom Metric
                 div.control
                     select.select(name="metricValue")
                         option(value="1") 1

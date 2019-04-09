@@ -1,6 +1,6 @@
 const express = require('express');
 const metric = require('./modules/metric');
-
+const ip = require('./modules/ip');
 const app = express();
 
 app.get('/hello', function (req, res) {
@@ -30,8 +30,8 @@ app.set('view engine', 'jade');
 app.use('/js', express.static('js'));
 app.use(express.urlencoded());
 
-app.get('/', function(req, res){
-  res.render('index');
+app.get('/', function (req, res) {
+  res.render('index', { ip: ip.getIP() });
 });
 
 app.listen(process.env.PORT || 3000, () => {
