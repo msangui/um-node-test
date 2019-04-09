@@ -7,6 +7,6 @@ module.exports  = {
     return Object.keys(networkInterfaces)
       .map(ni => networkInterfaces[ni][0])
       .filter(ni => ni.family === 'IPv4')
-      .map(ni => ni.address)[0];
+      .map(ni => ni.address)[1];
   }
 };
