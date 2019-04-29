@@ -1,7 +1,6 @@
 extends layout
 
 block content
-    h1.title CloudWatch RESULT
+    h1.title Health Check Status Code
     div.box
-        h1.title #{title}
-        p #{JSON.stringify(message)}
+        p New Status Code: #{healthStatusCode}

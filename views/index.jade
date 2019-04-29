@@ -4,21 +4,13 @@ block content
     h1.title.is-1 Elastic Load Balancer
     h3.title.is-3 Instance Internal IP: #{ip}
     div.box
-        form(method='GET', action='/metric', enctype='application/x-www-form-urlencoded')
+        form(method='POST', action='/health-status-code', enctype='application/x-www-form-urlencoded')
             div.field
-                label.label Set Custom Metric
+                label.label Set Health Endpoint Status
                 div.control
-                    select.select(name="metricValue")
-                        option(value="1") 1
-                        option(value="2") 2
-                        option(value="3") 3
-                        option(value="4") 4
-                        option(value="5") 5
-                        option(value="6") 6
-                        option(value="7") 7
-                        option(value="8") 8
-                        option(value="9") 9
-                        option(value="10") 10
+                    select.select(name="healthStatusCode")
+                        option(value="200") 200
+                        option(value="500") 500
             div.field
                 div.control
                     input.button.is-link(type='submit', value='Submit')

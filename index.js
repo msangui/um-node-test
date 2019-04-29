@@ -1,7 +1,11 @@
 const express = require('express');
-const metric = require('./modules/metric');
 const ip = require('./modules/ip');
 const app = express();
+const bodyParser = require('body-parser')
+
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+let healthStatusCode = 200;
 
 app.get('/hello', function (req, res) {
   res.status(200).send({
@@ -9,19 +13,13 @@ app.get('/hello', function (req, res) {
   });
 });
 
-app.get('/bye', function (req, res) {
-  res.status(200).send({
-    message: 'goodbye',
-  });
+app.get('/health-check', function (req, res) {
+  res.status(healthStatusCode).send({message: healthStatusCode === 200 ? 'success' : 'fail'});
 });
 
-app.get('/metric', async (req, res) => {
-  const result = await metric.sendCustomMetric(req.query.metricValue);
-  try {
-    res.status(200).send(result);
-  } catch (err) {
-    res.status(500).send(err);
-  }
+app.post('/health-status-code', urlencodedParser, async (req, res) => {
+  healthStatusCode = parseInt(req.body.healthStatusCode, 10);
+  res.render('result', { healthStatusCode });
 });
 
 app.set('views', __dirname + '/views');
